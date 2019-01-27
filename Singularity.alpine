@@ -13,7 +13,9 @@ From: alpine:3.7
 %post
   export ASCP_VERSION=3.8.1.161274
 
-  apk add --no-cache wget
+  apk add --no-cache \
+    wget \
+    bash
   
   wget --no-check-certificate https://download.asperasoft.com/download/sw/connect/3.8.1/ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.tar.gz
   tar -xzf ibm-aspera-connect-3.8.1.161274-linux-g2.12-64.tar.gz

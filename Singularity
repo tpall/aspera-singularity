@@ -27,5 +27,5 @@ From: ubuntu:16.04
   rm -rf /var/lib/apt/lists/*
 
 %environment
-  PATH=$PATH:~/.aspera/connect/bin:~/.aspera/connect/etc
+  PATH=$PATH:~/.aspera/connect/bin
   export PATH

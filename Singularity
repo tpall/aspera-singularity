@@ -14,7 +14,7 @@ From: ubuntu:16.04
   apt-get install -y --no-install-recommends \
     wget
   
-  wget https://download.asperasoft.com/download/sw/connect/3.8.1/ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.tar.gz
+  wget --no-check-certificate https://download.asperasoft.com/download/sw/connect/3.8.1/ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.tar.gz
   tar -xzf ibm-aspera-connect-3.8.1.161274-linux-g2.12-64.tar.gz
   ./ibm-aspera-connect-3.8.1.161274-linux-g2.12-64.tar.gz
 

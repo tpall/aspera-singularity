@@ -7,6 +7,9 @@ From: ubuntu:16.04
 %apprun ascp
   exec ascp "${@}"
 
+%runscript
+  exec ascp "${@}"
+
 %post
   export ASCP_VERSION=3.8.1.161274
   
@@ -24,5 +27,5 @@ From: ubuntu:16.04
   rm -rf /var/lib/apt/lists/*
 
 %environment
-  PATH=$PATH:~/.aspera/connect/bin
+  PATH=$PATH:~/.aspera/connect/bin:~/.aspera/connect/etc
   export PATH

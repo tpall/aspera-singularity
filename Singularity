@@ -11,21 +11,22 @@ From: ubuntu:16.04
   exec ascp "${@}"
 
 %post
-  export ASCP_VERSION=3.8.1.161274
+  export ASCP_VERSION=3.9.1.171801
   
-  apt-get update
-  apt-get install -y --no-install-recommends \
-    wget
+  # Install wget
+  apt-get update \
+     && apt-get install -y --no-install-recommends \
+     && wget
   
-  wget --no-check-certificate https://download.asperasoft.com/download/sw/connect/3.8.1/ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.tar.gz
-  tar -xzf ibm-aspera-connect-3.8.1.161274-linux-g2.12-64.tar.gz
-  chmod +x ibm-aspera-connect-3.8.1.161274-linux-g2.12-64.sh
-  ./ibm-aspera-connect-3.8.1.161274-linux-g2.12-64.sh
+  # Install aspera client
+  wget --no-check-certificate https://download.asperasoft.com/download/sw/connect/${ASCP_VERSION:0:5}/ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.tar.gz \
+      && tar -xzf ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.tar.gz \
+      && chmod +x ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.sh \
+      && ./ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.sh
 
   # Clean up
-  rm ibm-aspera-connect-3.8.1.161274-linux-g2.12-64.*
-  rm -rf /var/lib/apt/lists/*
+  rm ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.* \
+      && rm -rf /var/lib/apt/lists/*
 
 %environment
-  PATH=$PATH:~/.aspera/connect/bin
-  export PATH
+  

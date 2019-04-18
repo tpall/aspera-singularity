@@ -1,5 +1,5 @@
 BootStrap: docker
-From: ubuntu:16.04
+From: debian:stretch
 
 %labels
   Maintainer tpall
@@ -15,8 +15,7 @@ From: ubuntu:16.04
   
   # Install wget
   apt-get update \
-     && apt-get install -y --no-install-recommends \
-    wget
+     && apt-get install -y --no-install-recommends wget
   
   # Install aspera client
   wget --no-check-certificate https://download.asperasoft.com/download/sw/connect/${ASCP_VERSION:0:5}/ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.tar.gz \

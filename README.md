@@ -56,8 +56,20 @@ Display full usage: -h,--help
 Using example from [ENA](https://www.ebi.ac.uk/ena/browse/read-download#downloading_files_aspera):
 
 ```sh
-singularity run aspera-singularity.simg -QT -l 300m -P33001 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/ERR036/ERR036000/ERR036000_1.fastq.gz .
+singularity exec aspera-singularity.simg ascp -QT -l 300m -P33001 -i /usr/local/app/aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR555/009/SRR5557999/SRR5557999_1.fastq.gz .
 ```
+
+or simply by using singularity run
+
+```sh
+singularity run aspera-singularity.simg era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR555/009/SRR5557999/SRR5557999_1.fastq.gz .
+```
+
+or as an explicit app:
+```sh
+singularity run --app ascp aspera-singularity.simg era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR555/009/SRR5557999/SRR5557999_1.fastq.gz .
+```
+
 
 ## Contributing
 

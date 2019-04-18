@@ -5,13 +5,14 @@ From: debian:stretch
   Maintainer tpall
 
 %apprun ascp
-  exec ascp "${@}"
+  exec /usr/local/app/aspera/connect/bin/ascp -QT -l 300m -P33001 -i /usr/local/app/aspera/connect/etc/asperaweb_id_dsa.openssh "${@}"
 
 %runscript
-  exec $HOME/.aspera/connect/bin/ascp -QT -l 300m -P33001 -i $HOME/.aspera/connect/etc/asperaweb_id_dsa.openssh "${@}"
+  exec /usr/local/app/aspera/connect/bin/ascp -QT -l 300m -P33001 -i /usr/local/app/aspera/connect/etc/asperaweb_id_dsa.openssh "${@}"
 
 %post
-  export ASCP_VERSION=3.9.1.171801
+  ASCP_VERSION=3.9.1.171801
+  export ASCP_VERSION
   
   # Install wget
   apt-get update \
@@ -22,6 +23,9 @@ From: debian:stretch
       && tar -xzf ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.tar.gz \
       && chmod +x ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.sh \
       && ./ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.sh
+  
+  mkdir -p /usr/local/app/aspera/connect \
+      && cp ~/.aspera/connect /usr/local/app/aspera/connect
 
   # Clean up
   rm ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.* \

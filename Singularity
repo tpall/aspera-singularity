@@ -8,7 +8,7 @@ From: ubuntu:16.04
   exec ascp "${@}"
 
 %runscript
-  exec ascp "${@}"
+  exec $HOME/.aspera/connect/bin/ascp -QT -l 300m -P33001 -i $HOME/.aspera/connect/etc/asperaweb_id_dsa.openssh "${@}"
 
 %post
   export ASCP_VERSION=3.9.1.171801
@@ -16,7 +16,7 @@ From: ubuntu:16.04
   # Install wget
   apt-get update \
      && apt-get install -y --no-install-recommends \
-     && wget
+    wget
   
   # Install aspera client
   wget --no-check-certificate https://download.asperasoft.com/download/sw/connect/${ASCP_VERSION:0:5}/ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.tar.gz \
@@ -28,5 +28,4 @@ From: ubuntu:16.04
   rm ibm-aspera-connect-${ASCP_VERSION}-linux-g2.12-64.* \
       && rm -rf /var/lib/apt/lists/*
 
-%environment
   

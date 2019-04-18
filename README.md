@@ -2,7 +2,7 @@
 
 [![Singularity Hub](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/2200)
 
-Singularity image for Aspera Connect client.
+Singularity image for [Aspera Connect client](https://downloads.asperasoft.com/en/downloads/8?list).
 
 This is still a work in progress.
 

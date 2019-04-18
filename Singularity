@@ -26,6 +26,9 @@ From: debian:stretch
   
   mkdir -p /usr/local/app/aspera/connect \
       && cp -r ~/.aspera/connect /usr/local/app/aspera/
+      
+  ln -s /usr/local/app/aspera/connect/bin/ascp /usr/local/bin
+  ln -s /usr/local/app/aspera/connect/etc/asperaweb_id_dsa.openssh asperaweb_id_dsa.openssh
 
   # Clean up
   rm ibm-aspera-connect-3.9.1.171801-linux-g2.12-64.* \

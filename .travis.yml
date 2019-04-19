@@ -4,7 +4,7 @@ language: generic
 env:
   global:
     - SINGULARITY_IMAGE=aspera-singularity.simg
-    - VERSION=2.6.0
+    - VERSION=2.5.2
   matrix:
     - SPEC=Singularity
 before_install:

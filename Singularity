@@ -8,9 +8,6 @@ From: debian:stretch
 %apprun ascp
   exec ascp "${@}"
 
-%runscript
-  exec ascp "${@}"
-
 %post
   
   # Install wget

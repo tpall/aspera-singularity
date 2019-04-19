@@ -9,7 +9,7 @@ env:
     - SPEC=Singularity
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -y squashfs-tools wget
+  - sudo apt-get install -y libarchive-dev squashfs-tools wget
 install:
   - wget https://github.com/sylabs/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
   - tar xvf singularity-$VERSION.tar.gz

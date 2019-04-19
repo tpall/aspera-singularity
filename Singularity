@@ -5,10 +5,10 @@ From: debian:stretch
   Maintainer tpall
 
 %apprun ascp
-  exec /usr/local/app/aspera/connect/bin/ascp -QT -l 300m -P33001 -i /usr/local/app/aspera/connect/etc/asperaweb_id_dsa.openssh "${@}"
+  exec ascp "${@}"
 
 %runscript
-  exec /usr/local/app/aspera/connect/bin/ascp -QT -l 300m -P33001 -i /usr/local/app/aspera/connect/etc/asperaweb_id_dsa.openssh "${@}"
+  exec ascp "${@}"
 
 %post
   ASCP_VERSION=3.9.1.171801
@@ -28,6 +28,7 @@ From: debian:stretch
       && cp -r ~/.aspera/connect /usr/local/app/aspera/
       
   ln -s /usr/local/app/aspera/connect/bin/ascp /usr/local/bin
+  ln -s /usr/local/app/aspera/connect/etc/asperaweb_id_dsa.openssh ~/.ssh
 
   # Clean up
   rm ibm-aspera-connect-3.9.1.171801-linux-g2.12-64.* \

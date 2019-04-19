@@ -4,7 +4,7 @@ language: generic
 env:
   global:
     - SINGULARITY_IMAGE=aspera-singularity.simg
-    - VERSION=2.5.2
+    - VERSION=2.6.0
   matrix:
     - SPEC=Singularity
 before_install:
@@ -15,8 +15,8 @@ install:
   - tar xvf singularity-$VERSION.tar.gz
   - cd singularity-$VERSION
   - ./configure --prefix=/usr/local
-  - make
-  - sudo make install
+  - make && sudo make install 
+  - cd ..
 before_script:
   - sudo singularity build $SINGULARITY_IMAGE $SPEC
   - chmod +x run_tests.sh

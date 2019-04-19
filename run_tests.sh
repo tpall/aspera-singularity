@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 export SINGULARITY_IMAGE="${SINGULARITY_IMAGE:-aspera-singularity.simg}"
 echo "Using Singularity image: ${SINGULARITY_IMAGE}"

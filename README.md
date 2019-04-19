@@ -69,6 +69,10 @@ or as an explicit app:
 ```sh
 singularity run --app ascp aspera-singularity.simg era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR555/009/SRR5557999/SRR5557999_1.fastq.gz .
 ```
+or
+```sh
+singularity run shub://tpall/aspera-singularity  era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR555/009/SRR5557999/SRR5557999_1.fastq.gz .
+```
 
 
 ## Contributing

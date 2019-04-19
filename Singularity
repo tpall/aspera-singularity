@@ -3,6 +3,7 @@ From: debian:stretch
 
 %labels
   Maintainer tpall
+  ASCP_VERSION 3.9.1.171801
 
 %apprun ascp
   exec ascp "${@}"
@@ -11,8 +12,6 @@ From: debian:stretch
   exec ascp "${@}"
 
 %post
-  ASCP_VERSION=3.9.1.171801
-  export ASCP_VERSION
   
   # Install wget
   apt-get update \
@@ -28,7 +27,7 @@ From: debian:stretch
       && cp -r ~/.aspera/connect /usr/local/app/aspera/
       
   ln -s /usr/local/app/aspera/connect/bin/ascp /usr/local/bin
-  ln -s /usr/local/app/aspera/connect/etc/asperaweb_id_dsa.openssh ~/.ssh
+  ln -s /usr/local/app/aspera/connect/etc/asperaweb_id_dsa.openssh /usr/local/etc
 
   # Clean up
   rm ibm-aspera-connect-3.9.1.171801-linux-g2.12-64.* \
